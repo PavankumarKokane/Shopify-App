@@ -16,13 +16,14 @@ export default reactExtension(TARGET, () => <App />);
 
 function App() {
   const { close, data } = useApi(TARGET);
+  console.log(data);
   const [orderNumber, setOrderNumber] = useState("");
   const app_url = process.env.SHOPIFY_APP_URL;
 
   useEffect(() => {
     if (data && data.selected && data.selected[0] && data.selected[0].id) {
       const order_id = data.selected[0].id.split("/").pop();
-      setOrderNumber(order_id); 
+      setOrderNumber(order_id);
     }
   }, [data]);
 
