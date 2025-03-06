@@ -1,10 +1,11 @@
 import { json } from "@remix-run/node";
 import puppeteer from "puppeteer-core";
-import prisma from "../db.server";
 import chromium from "@sparticuz/chromium";
-import { fetchOrderData } from "../utils/api"; // Ensure correct import paths
+import { PrismaClient } from "@prisma/client";
+import { fetchOrderData } from "../utils/api";
 
 export const loader = async ({ params }) => {
+  const prisma = new PrismaClient();
   let accessToken;
   const store_url = process.env.SHOPIFY_STORE_URL;
   try {
@@ -15,7 +16,7 @@ export const loader = async ({ params }) => {
     });
 
     if (!session || !session.accessToken) {
-      throw new Error(`Access token not found for shop`);
+      throw new Error(`Access token not found for shop: ${store_url}`);
     }
     accessToken = session.accessToken;
   } catch (error) {
@@ -24,6 +25,8 @@ export const loader = async ({ params }) => {
   } finally {
     await prisma.$disconnect();
   }
+
+  console.log(store_url,accessToken);
 
   try {
     // Fetch order data and HSN data (ensure both are awaited)
@@ -779,7 +782,7 @@ export const loader = async ({ params }) => {
     return new Response(pdf, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename=invoice_${orderData.order.id}.pdf`,
+        "Content-Disposition": `attachment; filename=invoice-${orderData.order.id}.pdf`,
       },
     });
   } catch (error) {

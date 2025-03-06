@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "e214c4e312dfec1dd6dc8a3e67aba6e9"
-application_url = "https://petroleum-works-delete-nj.trycloudflare.com"
+application_url = "https://invoice-print.pavankokane.com"
 embedded = true
 name = "Invoice Print"
 handle = "invoice-print-2"
@@ -20,9 +20,9 @@ scopes = "read_customers,read_orders,read_products"
 
 [auth]
 redirect_urls = [
-  "https://petroleum-works-delete-nj.trycloudflare.com/auth/callback",
-  "https://petroleum-works-delete-nj.trycloudflare.com/auth/shopify/callback",
-  "https://petroleum-works-delete-nj.trycloudflare.com/api/auth/callback"
+  "https://invoice-print.pavankokane.com/auth/callback",
+  "https://invoice-print.pavankokane.com/auth/shopify/callback",
+  "https://invoice-print.pavankokane.com/api/auth/callback"
 ]
 
 [pos]
