@@ -15,7 +15,7 @@ export const loader = async ({ params }) => {
     });
 
     if (!session || !session.accessToken) {
-      throw new Error(`Access token not found for shop: GA4`);
+      throw new Error(`Access token not found for shop`);
     }
     accessToken = session.accessToken;
   } catch (error) {

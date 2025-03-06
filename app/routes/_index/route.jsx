@@ -20,7 +20,7 @@ export default function App() {
     <div className={styles.index}>
       <div className={styles.content}>
         <h1 className={styles.heading}>Tax Invoice</h1>
-        {/* {showForm && (
+        {showForm && (
           <Form className={styles.form} method="post" action="/auth/login">
             <label className={styles.label}>
               <span>Shop domain</span>
@@ -31,7 +31,7 @@ export default function App() {
               Log in
             </button>
           </Form>
-        )} */}
+        )}
       </div>
     </div>
   );
