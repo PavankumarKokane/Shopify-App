@@ -1,11 +1,10 @@
 import { json } from "@remix-run/node";
 import puppeteer from "puppeteer-core";
 import chromium from "@sparticuz/chromium";
-import { PrismaClient } from "@prisma/client";
 import { fetchOrderData } from "../utils/api";
+import prisma from "../db.server";
 
 export const loader = async ({ params }) => {
-  const prisma = new PrismaClient();
   let accessToken;
   const store_url = process.env.SHOPIFY_STORE_URL;
   try {
