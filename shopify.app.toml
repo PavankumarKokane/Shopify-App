@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "e214c4e312dfec1dd6dc8a3e67aba6e9"
+application_url = "https://invoice-print.pavankokane.com"
+embedded = true
+name = "Invoice Print"
+handle = "invoice-print-2"
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "pavankokane.myshopify.com"
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2024-10"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_customers,read_orders,read_products"
+
+[auth]
+redirect_urls = [
+  "https://invoice-print.pavankokane.com/auth/callback",
+  "https://invoice-print.pavankokane.com/auth/shopify/callback",
+  "https://invoice-print.pavankokane.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
